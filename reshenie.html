@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10 И | Тригонометрия</title>
+    <title>Тест | 10 И</title>
     <style>
         :root {
             --primary: #6366f1;
@@ -25,23 +25,20 @@
             background: var(--gradient);
             min-height: 100vh;
             padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .container {
-            max-width: 500px;
-            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .logo {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
             background: linear-gradient(45deg, var(--secondary), var(--accent));
             -webkit-background-clip: text;
@@ -49,23 +46,17 @@
             margin-bottom: 10px;
         }
 
-        .subtitle {
-            color: white;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
         .card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             border-radius: 20px;
-            padding: 40px 30px;
+            padding: 30px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .form-label {
@@ -77,47 +68,34 @@
 
         .form-input {
             width: 100%;
-            padding: 16px 20px;
+            padding: 14px 16px;
             border: 2px solid #e2e8f0;
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: 16px;
             background: white;
-            transition: all 0.3s ease;
         }
 
         .form-input:focus {
             border-color: var(--primary);
             outline: none;
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
         }
 
         .btn {
             width: 100%;
-            padding: 18px;
+            padding: 16px;
             background: var(--gradient-2);
             color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: 1.1rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 10px;
         }
 
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(245, 87, 108, 0.3);
-        }
-
-        @media (max-width: 480px) {
-            .card {
-                padding: 30px 20px;
-            }
-            
-            .logo {
-                font-size: 2rem;
-            }
         }
     </style>
 </head>
@@ -125,39 +103,67 @@
     <div class="container">
         <div class="header">
             <div class="logo">10 И</div>
-            <div class="subtitle">Решение сложных тригонометрических уравнений</div>
         </div>
 
         <div class="card">
-            <form id="userForm">
+            <form id="allTask">
                 <div class="form-group">
-                    <label for="us_Name" class="form-label">Имя</label>
-                    <input type="text" name="user_Name" id="us_Name" class="form-input" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="us_Surname" class="form-label">Фамилия</label>
-                    <input type="text" name="user_Surname" id="us_Surname" class="form-input" required>
+                    <label for="Task1">Идёт медведь</label>
+                    <input type="text" name="task1" id="Task1" class="form-input">
                 </div>
 
-                <button type="submit" class="btn">
-                    Начать тестирование
-                </button>
+                <div class="form-group">
+                    <label for="Task2">по лесу</label>
+                    <input type="text" name="task2" id="Task2" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="Task3">видит машина горит</label>
+                    <input type="text" name="task3" id="Task3" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="Task4">сел в машину</label>
+                    <input type="text" name="task4" id="Task4" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="Task5">и сгорел</label>
+                    <input type="text" name="task5" id="Task5" class="form-input">
+                </div>
+
+                <button type="submit" class="btn">Отправить ответы</button>
             </form>
         </div>
     </div>
 
     <script>
-        document.getElementById('userForm').addEventListener('submit', function(event) {
+        document.getElementById('allTask').addEventListener('submit', function(event) {
             event.preventDefault();
             
-            const name = document.getElementById('us_Name').value;
-            const surname = document.getElementById('us_Surname').value;
-            
-            localStorage.setItem('NAME', name);
-            localStorage.setItem('SURNAME', surname);
-            
-            window.location.href = 'reshenie.html';
+            if (confirm("Вы уверены, что хотите отправить ответы?")) {
+                const answers = ["_","1","2","3","4","5"];
+                let correctAnswers = 0;
+                const maxQuestions = 5;
+                
+                for (let i = 1; i <= maxQuestions; i++) {
+                    const userAnswer = document.getElementById("Task" + i).value.trim();
+                    if (userAnswer === answers[i]) {
+                        correctAnswers += 1;
+                    }
+                }
+                
+                let grade;
+                if (5 * (correctAnswers / maxQuestions) <= 2) {
+                    grade = 2;
+                } else {
+                    grade = Math.round(5 * (correctAnswers / maxQuestions));
+                }
+                
+                localStorage.setItem('RESULT', grade);
+                
+                window.location.href = 'result.html';
+            }
         });
     </script>
 </body>
