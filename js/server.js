@@ -5,7 +5,7 @@ http.createServer(function(request, response){
        
 
     let filePath = request.url.substring(1);
-    if(filePath == "") filePath = "index.html"; 
+    if(filePath == "") filePath = "gay.html"; 
     fs.readFile(filePath, function(error, data){
                
         if(error){
@@ -19,4 +19,5 @@ http.createServer(function(request, response){
     });
 }).listen(3000, function(){
     console.log("Server started at 3000");
+
 });
