@@ -11,10 +11,11 @@ function userInfo(event) {
     localStorage.setItem('SURNAME', userSurname);
     
     // Переход на следующую страницу
-    window.location.href = 'index.html';
+    window.location.href = 'gay.html';
     
     return false;
 }
+
 
 
 
