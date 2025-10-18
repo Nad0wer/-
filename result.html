@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты | 10 И</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #f59e0b;
+            --accent: #ec4899;
+            --dark: #1e293b;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--gradient);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .result-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .user-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .grade {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 20px 0;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--gradient-2);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 87, 108, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">10 И</div>
+        </div>
+
+        <div class="card">
+            <div class="result-icon">🎓</div>
+            <div class="user-name" id="userResult"></div>
+            <div>Ваша оценка:</div>
+            <div class="grade" id="gradeResult"></div>
+            
+            <button class="btn" onclick="window.location.href='capch.html'">
+                Пройти снова
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('userResult').textContent = 
+            localStorage.getItem('NAME') + " " + localStorage.getItem('SURNAME');
+        document.getElementById('gradeResult').textContent = 
+            localStorage.getItem('RESULT');
+    </script>
+</body>
+</html>
