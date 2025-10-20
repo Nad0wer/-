@@ -110,15 +110,25 @@
             <div class="user-name" id="userResult"></div>
             <div>Ваша оценка:</div>
             <div class="grade" id="gradeResult"></div>
-            
         </div>
+    
     </div>
 
+
+
+
+
+
+
+
+    
+
     <script>
-        document.getElementById('userResult').textContent = 
-            localStorage.getItem('NAME') + " " + localStorage.getItem('SURNAME');
-        document.getElementById('gradeResult').textContent = 
-            localStorage.getItem('RESULT');
+        document.getElementById('userResult').textContent =
+    localStorage.getItem('SURNAME') + " " + localStorage.getItem('NAME') +
+    ". Вариант: " + localStorage.getItem('Variant') + ""; // Append the variant
+
+document.getElementById('gradeResult').textContent = localStorage.getItem('RESULT');
     </script>
 </body>
 
