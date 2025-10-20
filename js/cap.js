@@ -11,7 +11,7 @@ function userInfo(event) {
     localStorage.setItem('SURNAME', userSurname);
     
     // Переход на следующую страницу
-    window.location.href = 'inde.html';
+    window.location.href = 'index.html';
     
     return false;
 }

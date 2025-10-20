@@ -2,9 +2,9 @@ function checkAns(event) {
     event.preventDefault();
     
     if (confirm("Вы уверены, что хотите отправить ответы?")) {
-        const answers = ["_","1","2","3","4","5"];
+        const answers = ["_","1","2","3"];
         let correctAnswers = 0;
-        const maxQuestions = 5;
+        const maxQuestions = 3;
         
         for (let i = 1; i <= maxQuestions; i++) {
             const userAnswer = document.getElementById("Task" + i).value.trim();
@@ -14,16 +14,14 @@ function checkAns(event) {
         }
         
         let grade;
-        if (5 * (correctAnswers / maxQuestions) <= 2) {
+        if ( correctAnswers == 0) {
             grade = 2;
-        } else {
-            grade = Math.round(5 * (correctAnswers / maxQuestions));
+        } else if (correctAnswers == 1) {
+            grade = 5;
         }
         
         localStorage.setItem('RESULT', grade);
         console.log("Оценка:", grade);
-        
-        // Переход на страницу результатов
         window.location.href = 'result.html';
     }
 }
