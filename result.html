@@ -1,104 +1,178 @@
-<!DOCTYPE html>
-<html lang="ru">
+    <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Результаты | 10 И</title>
+    <title>Результат</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #6366f1;
-            --secondary: #f59e0b;
-            --accent: #ec4899;
-            --dark: #1e293b;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
+    /* General Styles - Reduced Interface Size */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-size: 0.75em; /* Reduced overall font size */
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .container {
+      width: 100%;
+      max-width: 525px; /* Reduced max-width (700px / 1.33) */
+      padding: 30px; /* Reduced padding */
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--gradient);
-            min-height: 100vh;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    /* Header Styles - Reduced Interface Size */
+    .header {
+      background-color: #282828;
+      color: #ddd;
+      padding: 26.25px; /* Reduced padding (35px / 1.33) */
+      text-align: center;
+      border-radius: 15px; /* Reduced border-radius */
+      margin-bottom: 26.25px; /* Reduced margin-bottom */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      border-bottom: 4px solid #64B5F6; /* Reduced border */
+      transition: transform 0.3s ease-in-out;
+    }
 
-        .container {
-            max-width: 500px;
-            width: 100%;
-        }
+    .header:hover {
+      transform: translateY(-4px); /* Reduced translateY */
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .logo {
+      font-size: 2.1em; /* Reduced font-size (2.8em / 1.33) */
+      font-weight: 700;
+      letter-spacing: 1.125px; /* Reduced letter-spacing */
+      text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4); /* Reduced text-shadow */
+    }
 
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, var(--secondary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
+    /* Card Styles - Reduced Interface Size */
+    .card {
+      background-color: #333;
+      border-radius: 15px; /* Reduced border-radius */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      padding: 33.75px; /* Reduced padding */
+      border-left: 4px solid #64B5F6; /* Reduced border */
+      transition: transform 0.3s ease-in-out;
+      text-align: center; /* Center content */
+    }
 
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            text-align: center;
-        }
+    .card:hover {
+      transform: translateY(-4px); /* Reduced translateY */
+    }
 
+        /* Form Group Styles - Reduced Interface Size */
+    .form-group {  /* Changed this class name from outer card to fit your css*/
+      margin-bottom: 30px; /* Reduced margin-bottom */
+    }
+
+    .form-group h3 {
+      color: #eee;
+      margin-bottom: 15px; /* Reduced margin-bottom */
+      font-weight: 600;
+      font-size: 1.65em; /* Reduced font-size (2.2em / 1.33) */
+      text-shadow: 0.75px 0.75px 1.5px rgba(0, 0, 0, 0.4); /* Reduced text-shadow */
+    }
+
+    .form-group h6 {
+      color: #bbb;
+      font-size: 0.9em; /* Reduced font-size (1.2em / 1.33) */
+      line-height: 1.35; /* Reduced line-height */
+      font-weight: 300;
+    }
+
+    /* Answer Input Styles - Reduced Interface Size */
+    #answer-inputs {
+      margin-top: 18.75px; /* Reduced margin-top */
+    }
+
+    .answer-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px; /* Reduced margin-bottom */
+      background-color: #444;
+      border-radius: 11.25px; /* Reduced border-radius */
+      padding: 11.25px; /* Reduced padding */
+      transition: background-color 0.3s ease;
+    }
+
+    .answer-container:hover {
+      background-color: #555;
+    }
+
+    .form-input {
+      padding: 12px; /* Reduced padding */
+      border: 0.75px solid #555; /* Reduced border */
+      border-radius: 11.25px; /* Reduced border-radius */
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 0.9em; /* Reduced font-size (1.2em / 1.33) */
+      color: #ddd;
+      background-color: transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-input:focus {
+      border-color: #64B5F6;
+      outline: none;
+    }
+
+    /* Delete Button Styles - Reduced Interface Size */
+    .delete-button {
+      background-color: #C62828;
+      color: #fff;
+      border: none;
+      padding: 12px 18px; /* Reduced padding */
+      border-radius: 11.25px; /* Reduced border-radius */
+      cursor: pointer;
+      margin-left: 15px; /* Reduced margin-left */
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      font-size: 0.9em; /* Reduced font-size */
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .delete-button:hover {
+      background-color: #B71C1C;
+      transform: scale(1.05); /* Reduced scale */
+    }
+
+        /* Custom Styles for Results */
         .result-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 45px; /* Adjust as needed */
+            margin-bottom: 10px; /* Adjust as needed */
         }
 
         .user-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 20px;
+            font-size: 1.1em; /* Adjust as needed */
+            font-weight: 600;
+            margin-bottom: 8px; /* Adjust as needed */
+        }
+
+        .grade-label {
+            font-size: 0.9em; /* Adjust as needed */
+            color: #bbb;
+            margin-bottom: 5px; /* Adjust as needed */
         }
 
         .grade {
-            font-size: 2rem;
-            font-weight: 800;
-            background: var(--gradient-2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 20px 0;
+            font-size: 3em; /* Adjusted to make the grade larger */
+            color: #64B5F6; /* Matching the theme */
+            font-weight: 600;
+            margin-top: 10px; /* Add some space above grade */
         }
 
-        .btn {
-            width: 100%;
-            padding: 16px;
-            background: var(--gradient-2);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
+         .grade-label {
+            margin-top: 15px;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(245, 87, 108, 0.3);
-        }
     </style>
-</head>
+</head>  
 <body>
     <div class="container">
         <div class="header">
@@ -113,16 +187,6 @@
         </div>
     
     </div>
-
-
-
-
-
-
-
-
-    
-
     <script>
         document.getElementById('userResult').textContent =
     localStorage.getItem('SURNAME') + " " + localStorage.getItem('NAME') +

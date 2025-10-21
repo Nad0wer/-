@@ -1,124 +1,184 @@
-<!DOCTYPE html>
-<html lang="ru">
+                  <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10 И | Тригонометрия</title>
+    <title>Начало теста</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #6366f1;
-            --secondary: #f59e0b;
-            --accent: #ec4899;
-            --dark: #1e293b;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
+         /* General Styles - Reduced Interface Size */
+    html, body {
+        background-color: #1E1E1E; /* Ensure the body covers the entire screen */
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-size: 0.75em; /* Reduced overall font size */
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--gradient);
-            min-height: 100vh;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .container {
+      width: 100%;
+      max-width: 525px; /* Reduced max-width (700px / 1.33) */
+      padding: 30px; /* Reduced padding */
+    }
 
-        .container {
-            max-width: 500px;
-            width: 100%;
-        }
+    /* Header Styles - Reduced Interface Size */
+    .header {
+      background-color: #282828;
+      color: #ddd;
+      padding: 26.25px; /* Reduced padding (35px / 1.33) */
+      text-align: center;
+      border-radius: 15px; /* Reduced border-radius */
+      margin-bottom: 26.25px; /* Reduced margin-bottom */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      border-bottom: 4px solid #64B5F6; /* Reduced border */
+      transition: transform 0.3s ease-in-out;
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    .header:hover {
+      transform: translateY(-4px); /* Reduced translateY */
+    }
 
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, var(--secondary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
+    .logo {
+      font-size: 2.1em; /* Reduced font-size (2.8em / 1.33) */
+      font-weight: 700;
+      letter-spacing: 1.125px; /* Reduced letter-spacing */
+      text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4); /* Reduced text-shadow */
+    }
 
         .subtitle {
-            color: white;
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 1em;
+            color: #bbb;
+            margin-top: 0.5em;
+            font-weight: 300;
+            text-shadow: 0.75px 0.75px 1.5px rgba(0, 0, 0, 0.4);
         }
 
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
+    /* Card Styles - Reduced Interface Size */
+    .card {
+      background-color: #333;
+      border-radius: 15px; /* Reduced border-radius */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      padding: 33.75px; /* Reduced padding */
+      border-left: 4px solid #64B5F6; /* Reduced border */
+      transition: transform 0.3s ease-in-out;
+    }
 
-        .form-group {
-            margin-bottom: 25px;
-        }
+    .card:hover {
+        transform: translateY(-4px); /* Reduced translateY */
+    }
+
+        /* Form Group Styles - Reduced Interface Size */
+    .form-group {  /* Changed this class name from outer card to fit your css*/
+      margin-bottom: 30px; /* Reduced margin-bottom */
+    }
+
+    .form-group h3 {
+      color: #eee;
+      margin-bottom: 15px; /* Reduced margin-bottom */
+      font-weight: 600;
+      font-size: 1.65em; /* Reduced font-size (2.2em / 1.33) */
+      text-shadow: 0.75px 0.75px 1.5px rgba(0, 0, 0, 0.4); /* Reduced text-shadow */
+    }
+
+    .form-group h6 {
+      color: #bbb;
+      font-size: 0.9em; /* Reduced font-size (1.2em / 1.33) */
+      line-height: 1.35; /* Reduced line-height */
+      font-weight: 300;
+    }
 
         .form-label {
             display: block;
-            font-weight: 600;
+            color: #eee;
             margin-bottom: 8px;
-            color: var(--dark);
+            font-weight: 600;
+            font-size: 1em;
+            text-shadow: 0.75px 0.75px 1.5px rgba(0, 0, 0, 0.4);
         }
 
-        .form-input {
-            width: 100%;
-            padding: 16px 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 16px;
-            background: white;
-            transition: all 0.3s ease;
-        }
+    /* Answer Input Styles - Reduced Interface Size */
+    #answer-inputs {
+      margin-top: 18.75px; /* Reduced margin-top */
+    }
 
-        .form-input:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-        }
+    .answer-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px; /* Reduced margin-bottom */
+      background-color: #444;
+      border-radius: 11.25px; /* Reduced border-radius */
+      padding: 11.25px; /* Reduced padding */
+      transition: background-color 0.3s ease;
+    }
+
+    .answer-container:hover {
+      background-color: #555;
+    }
+
+    .form-input {
+      padding: 12px; /* Reduced padding */
+      border: 0.75px solid #555; /* Reduced border */
+      border-radius: 11.25px; /* Reduced border-radius */
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 0.9em; /* Reduced font-size (1.2em / 1.33) */
+      color: #ddd;
+      background-color: transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-input:focus {
+      border-color: #64B5F6;
+      outline: none;
+    }
 
         .btn {
-            width: 100%;
-            padding: 18px;
-            background: var(--gradient-2);
-            color: white;
+            background-color: #64B5F6;
+            color: #fff;
             border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 700;
+            padding: 12px 24px;
+            border-radius: 11.25px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 1em;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            box-sizing: border-box;
+            font-weight: 600;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(245, 87, 108, 0.3);
+            background-color: #52A3E4;
+            transform: scale(1.03);
         }
+        .delete-button {
+      background-color: #C62828;
+      color: #fff;
+      border: none;
+      padding: 12px 18px; /* Reduced padding */
+      border-radius: 11.25px; /* Reduced border-radius */
+      cursor: pointer;
+      margin-left: 15px; /* Reduced margin-left */
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      font-size: 0.9em; /* Reduced font-size */
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    }
 
-        @media (max-width: 480px) {
-            .card {
-                padding: 30px 20px;
-            }
-            
-            .logo {
-                font-size: 2rem;
-            }
-        }
+    .delete-button:hover {
+      background-color: #B71C1C;
+      transform: scale(1.05); /* Reduced scale */
+    }
     </style>
 </head>
 <body>
