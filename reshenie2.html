@@ -1,146 +1,340 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тест | 10 И</title>
-    <style>
-        :root {
-            --primary: #6366f1;
-            --secondary: #f59e0b;
-            --accent: #ec4899;
-            --dark: #1e293b;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Математический тест</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* General Styles - Reduced Interface Size */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1E1E1E;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-size: 0.75em; /* Reduced overall font size */
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--gradient);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+    .container {
+      width: 100%;
+      max-width: 525px; /* Reduced max-width (700px / 1.33) */
+      padding: 30px; /* Reduced padding */
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+    /* Header Styles - Reduced Interface Size */
+    .header {
+      background-color: #282828;
+      color: #ddd;
+      padding: 26.25px; /* Reduced padding (35px / 1.33) */
+      text-align: center;
+      border-radius: 15px; /* Reduced border-radius */
+      margin-bottom: 26.25px; /* Reduced margin-bottom */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      border-bottom: 4px solid #64B5F6; /* Reduced border */
+      transition: transform 0.3s ease-in-out;
+    }
 
-        .logo {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, var(--secondary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
+    .header:hover {
+      transform: translateY(-4px); /* Reduced translateY */
+    }
 
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
+    .logo {
+      font-size: 2.1em; /* Reduced font-size (2.8em / 1.33) */
+      font-weight: 700;
+      letter-spacing: 1.125px; /* Reduced letter-spacing */
+      text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4); /* Reduced text-shadow */
+    }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+    /* Card Styles - Reduced Interface Size */
+    .card {
+      background-color: #333;
+      border-radius: 15px; /* Reduced border-radius */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      padding: 33.75px; /* Reduced padding */
+      border-left: 4px solid #64B5F6; /* Reduced border */
+      transition: transform 0.3s ease-in-out;
+    }
 
-        .form-label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--dark);
-        }
+    .card:hover {
+      transform: translateY(-4px); /* Reduced translateY */
+    }
+        /* Form Group Styles - Reduced Interface Size */
+    .form-group {
+      margin-bottom: 30px; /* Reduced margin-bottom */
+    }
 
-        .form-input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #000000;
-            border-radius: 10px;
-            font-size: 16px;
-            background: white;
-        }
+    .form-group h3 {
+      color: #eee;
+      margin-bottom: 15px; /* Reduced margin-bottom */
+      font-weight: 600;
+      font-size: 1.65em; /* Reduced font-size (2.2em / 1.33) */
+      text-shadow: 0.75px 0.75px 1.5px rgba(0, 0, 0, 0.4); /* Reduced text-shadow */
+    }
 
-        .form-input:focus {
-            border-color: var(--primary);
-            outline: none;
-        }
+    .form-group h6 {
+      color: #bbb;
+      font-size: 0.9em; /* Reduced font-size (1.2em / 1.33) */
+      line-height: 1.35; /* Reduced line-height */
+      font-weight: 300;
+    }
 
-        .btn {
-            width: 100%;
-            padding: 16px;
-            background: var(--gradient-2);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+    /* Answer Input Styles - Reduced Interface Size */
+    #answer-inputs {
+      margin-top: 18.75px; /* Reduced margin-top */
+    }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(245, 87, 108, 0.3);
-        }
-    </style>
+    .answer-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px; /* Reduced margin-bottom */
+      background-color: #444;
+      border-radius: 11.25px; /* Reduced border-radius */
+      padding: 11.25px; /* Reduced padding */
+      transition: background-color 0.3s ease;
+    }
+
+    .answer-container:hover {
+      background-color: #555;
+    }
+
+    .form-input {
+      padding: 12px; /* Reduced padding */
+      border: 0.75px solid #555; /* Reduced border */
+      border-radius: 11.25px; /* Reduced border-radius */
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 0.9em; /* Reduced font-size (1.2em / 1.33) */
+      color: #ddd;
+      background-color: transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-input:focus {
+      border-color: #64B5F6;
+      outline: none;
+    }
+
+    /* Delete Button Styles - Reduced Interface Size */
+    .delete-button {
+      background-color: #C62828;
+      color: #fff;
+      border: none;
+      padding: 12px 18px; /* Reduced padding */
+      border-radius: 11.25px; /* Reduced border-radius */
+      cursor: pointer;
+      margin-left: 15px; /* Reduced margin-left */
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      font-size: 0.9em; /* Reduced font-size */
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .delete-button:hover {
+      background-color: #B71C1C;
+      transform: scale(1.05); /* Reduced scale */
+    }
+
+    /* Button Styles - Reduced Interface Size */
+    .btn {
+      background-color: #64B5F6;
+      color: #fff;
+          padding: 13.5px 21px; /* Reduced padding */
+      border: none;
+      border-radius: 11.25px; /* Reduced border-radius */
+      cursor: pointer;
+      font-size: 0.97em; /* Reduced font-size (1.3em / 1.33) */
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+      letter-spacing: 0.375px; /* Reduced letter-spacing */
+      box-shadow: 0 4.5px 9px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn:hover {
+      background-color: #42A5F5;
+      transform: scale(1.03); /* Reduced scale */
+    }
+
+    button[type="button"] {
+      background-color: #42A5F5;
+      color: #fff;
+      padding: 13.5px 21px; /* Reduced padding */
+      border: none;
+      border-radius: 11.25px; /* Reduced border-radius */
+      cursor: pointer;
+      font-size: 0.97em; /* Reduced font-size (1.3em / 1.33) */
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 15px; /* Reduced margin-top */
+      box-shadow: 0 4.5px 9px rgba(0, 0, 0, 0.3);
+    }
+
+    button[type="button"]:hover {
+      background-color: #29B6F6;
+      transform: scale(1.03); /* Reduced scale */
+    }
+
+    /* Darken the background */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+     @media (max-width: 480px) {
+      .container {
+        padding: 18.75px; /* Reduced padding */
+      }
+
+      .header {
+        padding: 18.75px; /* Reduced padding */
+        border-radius: 7.5px; /* Reduced border-radius */
+        margin-bottom: 18.75px; /* Reduced margin-bottom */
+      }
+
+      .card {
+        padding: 26.25px; /* Reduced padding */
+        border-radius: 7.5px; /* Reduced border-radius */
+      }
+
+      .form-input,
+      .btn,
+      button[type="button"] {
+        padding: 9px; /* Reduced padding */
+        font-size: 0.75em; /* Reduced font-size */
+      }
+
+      .delete-button {
+        padding: 9px 13.5px; /* Reduced padding */
+      }
+
+      .form-group h3 {
+        font-size: 1.35em; /* Reduced font-size */
+        margin-bottom: 9px; /* Reduced margin-bottom */
+      }
+
+      .form-group h6 {
+        font-size: 0.75em; /* Reduced font-size */
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">10 И</div>
-        </div>
 
-        <div class="card">
-            <form id="allTask">
-                <div class="form-group">
-                    <img src="photos/num2.png" alt="exesise_1" style="margin-bottom: 9px; margin-left: 170px;">
-                    <h5>В ответ запишите наибольший корень без периода (+2πn), "π" запишите как "pi", дробь запишите через / (например, 7pi/5).</h5>
-                    <input type="text" name="task1" id="Task1" class="form-input" style="margin-top: 10px;">
-                </div> 
-                
-                <button type="submit" class="btn">Отправить ответы</button>
-            </form>
-        </div>
+  <div class="container">
+    <div class="header">
+      <div class="logo">10 И</div>
     </div>
 
-    <script>
-        document.getElementById('allTask').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            if (confirm("Вы уверены, что хотите отправить ответы?")) {
-                const answers = ["_","5pi/4"]; // Правильный ответ для Task1
-                let correctAnswers = 0;
-                const maxQuestions = 1;
-                const userAnswer = document.getElementById("Task1").value.trim();
-                if (userAnswer === answers[1]) {
-                    correctAnswers += 1;
-                }
-            
-                let grade;
-                if (correctAnswers < 1) {
-                    grade = 2;
-                } else {
-                    grade = 5;
-                }
-                
-                localStorage.setItem('RESULT', grade);
-                window.location.href = 'result.html';
-            }
+    <div class="card">
+      <form id="allTask">
+        <div class="form-group">
+          <h3>Sin 2x + √2 Sin x = 0</h3>
+          <br>
+          <h6>Ответ запишите корни без периода (+2πn) в порядке возрастания, "π" запишите как "pi", дробь запишите через / (например, 7pi/5).</h6>
+          <br>
+          <div id="answer-inputs">
+            <div class="answer-container">
+              <input type="text" name="task1" id="Task1" class="form-input" placeholder="Введите корень">
+            </div>
+          </div>
+          <button type="button" id="add-answer">Добавить корень</button>
+        </div>
+
+        <button type="submit" class="btn">Отправить ответы</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Правильные ответы для уравнения
+    const correctAnswers = ["pi", "3pi/4", "-3pi/4"];
+    let maxPossibleScore = correctAnswers.length;
+
+    // Функция для добавления нового поля ввода
+    function addAnswerInput() {
+      const answerInputs = document.getElementById('answer-inputs');
+      const newInputDiv = document.createElement('div');
+      newInputDiv.className = 'answer-container';
+
+      const newInput = document.createElement('input');
+      newInput.type = 'text';
+      newInput.name = 'task1';
+      newInput.className = 'form-input';
+      newInput.placeholder = 'Введите корень';
+
+      const deleteButton = document.createElement('button');
+      deleteButton.type = 'button';
+      deleteButton.innerHTML = '&times;';
+      deleteButton.className = 'delete-button';
+
+      deleteButton.addEventListener('click', function() {
+        newInputDiv.remove();
+      });
+
+      newInputDiv.appendChild(newInput);
+      newInputDiv.appendChild(deleteButton);
+      answerInputs.appendChild(newInputDiv);
+    }
+
+    // Добавляем обработчик для кнопки "Добавить корень"
+    document.getElementById('add-answer').addEventListener('click', addAnswerInput);
+
+    // Обработчик отправки формы
+    document.getElementById('allTask').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      if (confirm("Вы уверены, что хотите отправить ответы?")) {
+        const userAnswers = document.querySelectorAll('input[name="task1"]');
+        let foundCorrectAnswers = 0;
+        let userAnswerValues = [];
+
+        // Собираем все ответы пользователя
+        userAnswers.forEach(function(input) {
+          const value = input.value.trim();
+          if (value) {
+            userAnswerValues.push(value);
+          }
         });
-    </script>
+
+        // Проверяем каждый правильный ответ
+        correctAnswers.forEach(function(correctAnswer) {
+          if (userAnswerValues.includes(correctAnswer)) {
+            foundCorrectAnswers += 1;
+          }
+        });
+
+        // Вычисляем оценку на основе количества найденных правильных корней
+        let grade;
+        if (foundCorrectAnswers === 0) {
+          grade = 2;
+        } else if (foundCorrectAnswers === 1) {
+          grade = 3;
+        } else if (foundCorrectAnswers === 2) {
+          grade = 4;
+        } else if (foundCorrectAnswers === 3) {
+          grade = 5;}
+
+        // Если пользователь нашел все корни, но добавил лишние - оценка 5
+        // Если нашел не все, но добавил правильные - оценка соответственно количеству правильных
+
+        localStorage.setItem('RESULT', grade);
+        window.location.href = 'result.html';
+      }
+    });
+  </script>
+
 </body>
 </html>
