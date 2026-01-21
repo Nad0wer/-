@@ -1,0 +1,249 @@
+                  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Начало теста</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+         /* General Styles - Reduced Interface Size */
+    html, body {
+        background-color: #1E1E1E; /* Ensure the body covers the entire screen */
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-size: 0.75em; /* Reduced overall font size */
+    }
+
+    .container {
+      width: 100%;
+      max-width: 525px; /* Reduced max-width (700px / 1.33) */
+      padding: 30px; /* Reduced padding */
+    }
+
+    /* Header Styles - Reduced Interface Size */
+    .header {
+      background-color: #282828;
+      color: #ddd;
+      padding: 26.25px; /* Reduced padding (35px / 1.33) */
+      text-align: center;
+      border-radius: 15px; /* Reduced border-radius */
+      margin-bottom: 26.25px; /* Reduced margin-bottom */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      border-bottom: 4px solid #64B5F6; /* Reduced border */
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .header:hover {
+      transform: translateY(-4px); /* Reduced translateY */
+    }
+
+    .logo {
+      font-size: 2.1em; /* Reduced font-size (2.8em / 1.33) */
+      font-weight: 700;
+      letter-spacing: 1.125px; /* Reduced letter-spacing */
+      text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4); /* Reduced text-shadow */
+    }
+
+        .subtitle {
+            font-size: 1em;
+            color: #bbb;
+            margin-top: 0.5em;
+            font-weight: 300;
+            text-shadow: 0.75px 0.75px 1.5px rgba(0, 0, 0, 0.4);
+        }
+
+    /* Card Styles - Reduced Interface Size */
+    .card {
+      background-color: #333;
+      border-radius: 15px; /* Reduced border-radius */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      padding: 33.75px; /* Reduced padding */
+      border-left: 4px solid #64B5F6; /* Reduced border */
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+        transform: translateY(-4px); /* Reduced translateY */
+    }
+
+        /* Form Group Styles - Reduced Interface Size */
+    .form-group {  /* Changed this class name from outer card to fit your css*/
+      margin-bottom: 30px; /* Reduced margin-bottom */
+    }
+
+    .form-group h3 {
+      color: #eee;
+      margin-bottom: 15px; /* Reduced margin-bottom */
+      font-weight: 600;
+      font-size: 1.65em; /* Reduced font-size (2.2em / 1.33) */
+      text-shadow: 0.75px 0.75px 1.5px rgba(0, 0, 0, 0.4); /* Reduced text-shadow */
+    }
+
+    .form-group h6 {
+      color: #bbb;
+      font-size: 0.9em; /* Reduced font-size (1.2em / 1.33) */
+      line-height: 1.35; /* Reduced line-height */
+      font-weight: 300;
+    }
+
+        .form-label {
+            display: block;
+            color: #eee;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 1em;
+            text-shadow: 0.75px 0.75px 1.5px rgba(0, 0, 0, 0.4);
+        }
+
+    /* Answer Input Styles - Reduced Interface Size */
+    #answer-inputs {
+      margin-top: 18.75px; /* Reduced margin-top */
+    }
+
+    .answer-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px; /* Reduced margin-bottom */
+      background-color: #444;
+      border-radius: 11.25px; /* Reduced border-radius */
+      padding: 11.25px; /* Reduced padding */
+      transition: background-color 0.3s ease;
+    }
+
+    .answer-container:hover {
+      background-color: #555;
+    }
+
+    .form-input {
+      padding: 12px; /* Reduced padding */
+      border: 0.75px solid #555; /* Reduced border */
+      border-radius: 11.25px; /* Reduced border-radius */
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 0.9em; /* Reduced font-size (1.2em / 1.33) */
+      color: #ddd;
+      background-color: transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-input:focus {
+      border-color: #64B5F6;
+      outline: none;
+    }
+
+        .btn {
+            background-color: #64B5F6;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 11.25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 1em;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            box-sizing: border-box;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background-color: #52A3E4;
+            transform: scale(1.03);
+        }
+        .delete-button {
+      background-color: #C62828;
+      color: #fff;
+      border: none;
+      padding: 12px 18px; /* Reduced padding */
+      border-radius: 11.25px; /* Reduced border-radius */
+      cursor: pointer;
+      margin-left: 15px; /* Reduced margin-left */
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      font-size: 0.9em; /* Reduced font-size */
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .delete-button:hover {
+      background-color: #B71C1C;
+      transform: scale(1.05); /* Reduced scale */
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">10 И</div>
+            <div class="subtitle">Подготовка к ЕГЭ по информатике</div>
+        </div>
+
+        <div class="card">
+            <form id="userForm">
+                <div class="form-group">
+                    <label for="us_Name" class="form-label">Имя</label>
+                    <input type="text" name="user_Name" id="us_Name" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="us_Surname" class="form-label">Фамилия</label>
+                    <input type="text" name="user_Surname" id="us_Surname" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <select name='zadanie' id="us_Zadanie">
+                      <option value="2">Задание 2</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="us_Variant" class="form-label">Вариант (1 - 2)</label>
+                    <input type="text" name="user_Variant" id="us_Variant" class="form-input" required>
+                </div>
+
+                <button type="submit" class="btn">
+                    Начать тестирование
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('us_Name').value;
+            const surname = document.getElementById('us_Surname').value;
+            const variant = document.getElementById('us_Variant').value;
+            const zadanie = document.getElementById('us_Zadanie').value;
+            
+            function selectTest(testType) {
+              localStorage.setItem('TEST_TYPE', testType);
+            }
+            
+            localStorage.setItem('NAME', name);
+            localStorage.setItem('SURNAME', surname);
+            if (zadanie==2){ // Задание 2
+            if (variant == 1) {
+    window.location.href = 'reshenie2_1.html';
+} else if (variant == 2) {
+    window.location.href = 'reshenie2_2.html';
+} else {
+    alert('Ошибка: Введите корректный номер варианта.');
+}}
+
+            localStorage.setItem('Variant', variant)
+        });
+    </script>
+</body>
+
+</html>
+
