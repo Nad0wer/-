@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результат теста</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+    /* General Styles - Reduced Interface Size */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1c1c1c;
+      color: #FFF;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-size: 0.75em; /* Reduced overall font size */
+    }
+
+    .container {
+      width: 100%;
+      max-width: 525px; /* Reduced max-width (700px / 1.33) */
+      padding: 30px; /* Reduced padding */
+    }
+
+    /* Header Styles - Reduced Interface Size */
+    .header {
+      background-color: #282828;
+      color: #ddd;
+      padding: 26.25px; /* Reduced padding (35px / 1.33) */
+      text-align: center;
+      border-radius: 15px; /* Reduced border-radius */
+      margin-bottom: 26.25px; /* Reduced margin-bottom */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      border-bottom: 4px solid #64B5F6; /* Reduced border */
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .header:hover {
+      transform: translateY(-4px); /* Reduced translateY */
+    }
+
+    .logo {
+      font-size: 2.1em; /* Reduced font-size (2.8em / 1.33) */
+      font-weight: 700;
+      letter-spacing: 1.125px; /* Reduced letter-spacing */
+      text-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4); /* Reduced text-shadow */
+    }
+
+    /* Card Styles - Reduced Interface Size */
+    .card {
+      background-color: #333;
+      border-radius: 15px; /* Reduced border-radius */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      padding: 33.75px; /* Reduced padding */
+      border-left: 4px solid #64B5F6; /* Reduced border */
+      transition: transform 0.3s ease-in-out;
+      text-align: center;
+      margin-bottom: 26.25px;
+    }
+
+    .card:hover {
+      transform: translateY(-4px); /* Reduced translateY */
+    }
+
+    .result-header {
+      text-align: center;
+      margin-bottom: 26.25px;
+    }
+
+    .result-icon {
+      font-size: 3.75em; /* Reduced font-size */
+      margin-bottom: 18.75px;
+      color: #64B5F6;
+    }
+
+    .user-info {
+      font-size: 1.35em; /* Reduced font-size */
+      margin-bottom: 11.25px;
+      font-weight: 600;
+    }
+
+    .variant-info {
+      font-size: 1.05em; /* Reduced font-size */
+      color: #bbb;
+      margin-bottom: 26.25px;
+    }
+
+    /* Grade Display Styles */
+    .grade-container {
+      background: linear-gradient(135deg, #2c3e50, #4a6491);
+      border-radius: 15px; /* Reduced border-radius */
+      padding: 33.75px; /* Reduced padding */
+      margin-bottom: 26.25px;
+    }
+
+    .grade-label {
+      font-size: 1.2em; /* Reduced font-size */
+      color: #ddd;
+      margin-bottom: 15px;
+    }
+
+    .grade {
+      font-size: 4.5em; /* Reduced font-size */
+      font-weight: 700;
+      color: #64B5F6;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .score {
+      font-size: 1.35em; /* Reduced font-size */
+      color: #bbb;
+      margin-top: 11.25px;
+    }
+
+    /* Details Card Styles */
+    .details-card {
+      text-align: left;
+    }
+
+    .details-title {
+      font-size: 1.5em; /* Reduced font-size */
+      color: #64B5F6;
+      margin-bottom: 18.75px;
+      padding-bottom: 9px;
+      border-bottom: 2px solid #64B5F6;
+    }
+
+    .task-result {
+      background-color: #444;
+      border-radius: 11.25px; /* Reduced border-radius */
+      padding: 15px; /* Reduced padding */
+      margin-bottom: 11.25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .task-result:hover {
+      background-color: #555;
+    }
+
+    .task-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .task-name {
+      font-weight: 600;
+      font-size: 1.05em; /* Reduced font-size */
+      margin-bottom: 4.5px;
+    }
+
+    .task-answer {
+      font-size: 0.9em; /* Reduced font-size */
+      color: #bbb;
+    }
+
+    .task-status {
+      font-size: 1.35em; /* Reduced font-size */
+    }
+
+    .correct {
+      color: #4CAF50;
+    }
+
+    .incorrect {
+      color: #f44336;
+    }
+
+    .summary {
+      background-color: #444;
+      border-radius: 11.25px; /* Reduced border-radius */
+      padding: 18.75px; /* Reduced padding */
+      margin-top: 18.75px;
+      text-align: center;
+    }
+
+    .summary-title {
+      font-size: 1.2em; /* Reduced font-size */
+      margin-bottom: 11.25px;
+      color: #64B5F6;
+    }
+
+    .summary-stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 11.25px;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-value {
+      font-size: 1.8em; /* Reduced font-size */
+      font-weight: 700;
+      color: #64B5F6;
+    }
+
+    .stat-label {
+      font-size: 0.9em; /* Reduced font-size */
+      color: #bbb;
+      margin-top: 4.5px;
+    }
+
+    /* Button Styles */
+    .btn {
+      background-color: #64B5F6;
+      color: #fff;
+      padding: 13.5px 21px; /* Reduced padding */
+      border: none;
+      border-radius: 11.25px; /* Reduced border-radius */
+      cursor: pointer;
+      font-size: 0.97em; /* Reduced font-size (1.3em / 1.33) */
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+      letter-spacing: 0.375px; /* Reduced letter-spacing */
+      box-shadow: 0 4.5px 9px rgba(0, 0, 0, 0.3);
+      margin-top: 15px;
+    }
+
+    .btn:hover {
+      background-color: #42A5F5;
+      transform: scale(1.03); /* Reduced scale */
+    }
+
+    .btn-secondary {
+      background-color: #555;
+    }
+
+    .btn-secondary:hover {
+      background-color: #666;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .container {
+        padding: 18.75px; /* Reduced padding */
+      }
+
+      .header {
+        padding: 18.75px; /* Reduced padding */
+        border-radius: 7.5px; /* Reduced border-radius */
+        margin-bottom: 18.75px; /* Reduced margin-bottom */
+      }
+
+      .card {
+        padding: 26.25px; /* Reduced padding */
+        border-radius: 7.5px; /* Reduced border-radius */
+      }
+
+      .grade {
+        font-size: 3.75em; /* Reduced font-size */
+      }
+
+      .summary-stats {
+        flex-direction: column;
+        gap: 11.25px;
+      }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">10 И</div>
+        </div>
+
+        <!-- Основная информация -->
+        <div class="card">
+            <div class="result-header">
+                <div class="result-icon">📊</div>
+                <div class="user-info" id="userInfo"></div>
+                <div class="zadanie-info" id="zadanieInfo"></div>
+                <div class="variant-info" id="variantInfo"></div>
+            </div>
+
+            <div class="grade-container">
+                <div class="grade-label">Ваша оценка:</div>
+                <div class="grade" id="gradeDisplay"></div>
+                <div class="score" id="scoreDisplay"></div>
+            </div>
+        </div>
+
+        <!-- Детализация результатов -->
+        <div class="card details-card">
+            <div class="details-title">Результаты по заданиям</div>
+            <div id="tasksResults"></div>
+            
+            <!-- Статистика -->
+            <div class="summary">
+                <div class="summary-title">Итоговая статистика</div>
+                <div class="summary-stats">
+                    <div class="stat">
+                        <div class="stat-value" id="correctCount">0</div>
+                        <div class="stat-label">Правильно</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="totalCount">0</div>
+                        <div class="stat-label">Всего заданий</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="percentage">0%</div>
+                        <div class="stat-label">Успеваемость</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Кнопки действий -->
+        <div class="card">
+            <button class="btn" onclick="goToPrevious()">
+                <i class="fas fa-redo"></i> Пройти тест заново
+            </button>
+            <button class="btn btn-secondary" onclick="goToMain()">
+                <i class="fas fa-home"></i> На главную
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Получаем данные из localStorage
+            const surname = localStorage.getItem('SURNAME') || 'Неизвестно';
+            const name = localStorage.getItem('NAME') || 'Неизвестно';
+            const variant = localStorage.getItem('Variant') || 'Не указан';
+            const grade = localStorage.getItem('RESULT') || '2';
+            const score = localStorage.getItem('SCORE') || '0/0';
+            const zadanie = localStorage.getItem('zadanie') || '';
+            const testType = localStorage.getItem('TEST_TYPE') || 'reshenie2_1';
+            
+            // Получаем детализированные результаты
+            let resultDetails = localStorage.getItem('resultDetails');
+            if (resultDetails) {
+                resultDetails = JSON.parse(resultDetails);
+            } else {
+                resultDetails = {
+                    task1: { user: '', correct: '' },
+                    task2: { user: '', correct: '' },
+                    task3: { user: '', correct: '' },
+                    score: 0,
+                    total: 3
+                };
+            }
+            
+            // Отображаем основную информацию
+            document.getElementById('userInfo').textContent = `${surname} ${name}`;
+            document.getElementById('variantInfo').textContent = `Вариант: ${variant}`;
+            if (zadanie) {
+                document.getElementById('zadanieInfo').textContent = `Задание: ${zadanie}`;
+            }
+            document.getElementById('gradeDisplay').textContent = grade;
+            document.getElementById('scoreDisplay').textContent = `Результат: ${score}`;
+
+            // Отображаем результаты по заданиям
+            displayTaskResults(resultDetails);
+            
+            // Рассчитываем и отображаем статистику
+            calculateAndDisplayStats(resultDetails);
+        });
+        
+        function displayTaskResults(details) {
+            const container = document.getElementById('tasksResults');
+            container.innerHTML = '';
+            
+            // Для каждого задания создаем блок с результатом
+            for (let i = 1; i <= details.total; i++) {
+                const taskKey = `task${i}`;
+                const task = details[taskKey] || { user: 'Нет ответа', correct: '' };
+                
+                // Проверяем правильность ответа
+                const isCorrect = task.user && task.user.toLowerCase() === task.correct.toLowerCase();
+                const statusIcon = isCorrect ? '✅' : '❌';
+                const statusClass = isCorrect ? 'correct' : 'incorrect';
+                
+                const taskDiv = document.createElement('div');
+                taskDiv.className = 'task-result';
+                taskDiv.innerHTML = `
+                    <div class="task-info">
+                        <div class="task-name">Задание ${i}</div>
+                        <div class="task-answer">
+                            Ваш ответ: <strong>${task.user || 'Нет ответа'}</strong>
+                            ${task.correct ? `<br>Правильный ответ: <strong>${task.correct}</strong>` : ''}
+                        </div>
+                    </div>
+                    <div class="task-status ${statusClass}">${statusIcon}</div>
+                `;
+                
+                container.appendChild(taskDiv);
+            }
+        }
+        
+        function calculateAndDisplayStats(details) {
+            let correctCount = 0;
+            const totalCount = details.total || 3;
+            
+            // Подсчитываем правильные ответы
+            for (let i = 1; i <= totalCount; i++) {
+                const taskKey = `task${i}`;
+                const task = details[taskKey];
+                if (task && task.user && task.correct) {
+                    if (task.user.toLowerCase() === task.correct.toLowerCase()) {
+                        correctCount++;
+                    }
+                }
+            }
+            
+            // Рассчитываем процент
+            const percentage = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
+            
+            // Отображаем статистику
+            document.getElementById('correctCount').textContent = correctCount;
+            document.getElementById('totalCount').textContent = totalCount;
+            document.getElementById('percentage').textContent = `${percentage}%`;
+        }
+        
+        function printResults() {
+            window.print();
+        }
+        
+        function goToMain() {
+            localStorage.removeItem('testAnswers');
+            localStorage.removeItem('resultDetails');
+            localStorage.removeItem('RESULT');
+            localStorage.removeItem('SCORE');
+            window.location.href = 'index.html';
+        }
+        
+        function goToPrevious() {
+        const currentTestType = localStorage.getItem('TEST_TYPE') || 'reshenie2_1';
+
+        localStorage.removeItem('testAnswers');
+        localStorage.removeItem('resultDetails');
+        localStorage.removeItem('RESULT');
+        localStorage.removeItem('SCORE');
+    
+        if (currentTestType === 'reshenie2_2') {
+        window.location.href = 'reshenie2_2.html';
+        } else {
+        window.location.href = 'reshenie2_1.html';
+        }
+}
+    </script>
+</body>
+</html>
